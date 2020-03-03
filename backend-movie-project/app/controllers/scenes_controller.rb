@@ -5,17 +5,18 @@ class ScenesController < ApplicationController
         render json: @scenes
     end
 
-    # def create 
-    #     # scene= Scene.find_or_create_by(name: params[:])
-    #     @scene = Scene.create(
-    #         description: params[:description],
-    #         image_url: params[:image_url]
-    #     )
+    def create 
 
-    #     if scene.valid?
-    #         render josn: scene
-    #     else
-    #         render json: { errors: scene.errors.full_messages}, status 400
-    #     end
-    # end
+        scene = Scene.create(scene_params)
+        render json: scene
+        # scene = Scene.create(scene_params)
+        # render json: scene
+    end
+
+     
+private
+
+    def scene_params
+        params.permit(:image_url, :description)
+    end
 end

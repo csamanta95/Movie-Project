@@ -22,14 +22,25 @@
         <li class="item" id="make-movie-button" data-action="new">
           Make New Movie
         </li>
-        <li class="item" id="judge-movie-button" data-action="judge">
-          
-        </li>
+        
       </ul>
     </aside>
     <section>
       <div id="detail">
         <h1>Movie Scenes</h1>
+      </div>
+      <button class="item" id="make-scene-button" data-action="new">
+        Create New Scene
+      </button>
+      <div id="modal2" style="display: none;" data-action="close">
+        <form id="new-scene-form">
+          <h1>Create New Scene</h1>
+          <label for="image_url">Image URL</label>
+          <input type="text" name="image_url">
+          <label for="description">Description</label>
+          <textarea name="description" rows="2"></textarea>
+          <input type="submit" value="Create Scene">
+        </form>
       </div>
     </section>
   </main>
@@ -40,15 +51,12 @@
       <input type="text" name="title">
       <label for="release_year">Release Year</label>
       <input type="text" name="release_year">
-      <label for="image_url">Image URL</label>
-      <input type="text" name="image_url">
-      <label for="description">Description</label>
-      <textarea name="description" rows="2"></textarea>
       <input type="submit" value="Create Movie">
     </form>
   </div>
-<script src= "src/modal.js"></script>
+<script defer src= "src/modal.js"></script>
   <script defer src="src/index.js"></script>
+  <script defer src="src/modal2.js"></script>
 </body>
 </html>
 

@@ -41,6 +41,7 @@ main {
   grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr;
   height: 100vh;
+  /* background-color: pink; */
 }
 
 /* sidebar */
