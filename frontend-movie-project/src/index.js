@@ -2,6 +2,7 @@ let movies = []
 const movieArea = document.querySelector("#movies-container")
 const detailDiv = document.querySelector("#detail")
 
+
 function renderMoviesList(movies) {
     movies.forEach(movie => renderEachMovie(movie))
 }
@@ -9,9 +10,20 @@ function renderMoviesList(movies) {
 function renderEachMovie(movieObj) {
     const movieLi = document.createElement("li")
     movieLi.className = "item"
-    movieLi.setAttribute("movie-id", movieObj.id)
-    movieLi.innerText = `${movieObj.title}`
+    // movieLi.setAttribute("movie-id", movieObj.id)
+    // movieLi.innerText = `${movieObj.title}`
+    movieLi.innerHTML = `
+    <h4 class="item">${movieObj.title}</h4>
+    <button data-id="${movieObj.id}" class="delete-button">X</button>`
     movieArea.append(movieLi)
+    const deleteBtn2 = movieLi.querySelector(".delete-button")
+    deleteBtn2.addEventListener("click", event => {
+        movieLi.remove() 
+        
+        fetch(`http://localhost:3000/movies/${movieObj.id}`, {
+        method: "DELETE"
+        })
+    })
 
     movieLi.addEventListener("click", () => {
         renderMovieDetail(movieObj)
@@ -32,19 +44,22 @@ function renderMovieDetail(movieObj) {
     <h2> ${movieObj.release_year}</h2>
     `
     movieObj.scenes.forEach( scene => {
+        
         newElement.innerHTML += `
+        
         <img src=${scene.image_url} alt=${movieObj.title}>
         <p class="description">
         ${scene.description}
-        </p> `
+        </p> 
+        `
     } )
     detailDiv.textContent = ""
     detailDiv.append(newElement)
 
-    const newFormTwo = document.querySelector("#new-scene-form")
-    console.log(newFormTwo)
-    newFormTwo.addEventListener("submit", handleSubmitTwo)
 
+    // const newFormTwo = document.querySelector("#new-scene-form")
+    // console.log(newFormTwo)
+    // newFormTwo.addEventListener("submit", handleSubmitTwo)
 
 }
 
@@ -68,7 +83,7 @@ const handleSubmitTwo = (event) => {
     .then(res => res.json())
     .then(results => {
         detailDiv.push(results)
-        
+        renderMovieDetail(results)
     })
 
     
