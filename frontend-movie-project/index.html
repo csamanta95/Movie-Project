@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&display=swap" rel="stylesheet">
-  
   <title>Mod 3 Final Project</title>
 </head>
 <body>
@@ -32,16 +31,7 @@
       <button class="item" id="make-scene-button" data-action="new">
         Create New Scene
       </button>
-      <div id="modal2" style="display: none;" data-action="close">
-        <form id="new-scene-form">
-          <h1>Create New Scene</h1>
-          <label for="image_url">Image URL</label>
-          <input type="text" name="image_url">
-          <label for="description">Description</label>
-          <textarea name="description" rows="2"></textarea>
-          <input type="submit" value="Create Scene">
-        </form>
-      </div>
+      
     </section>
   </main>
   <div id="modal" style="display: none;" data-action="close">
@@ -54,9 +44,9 @@
       <input type="submit" value="Create Movie">
     </form>
   </div>
-<script defer src= "src/modal.js"></script>
+  <script defer src= "src/modal.js"></script>
+  <!-- <script defer src="src/modal2.js"></script> -->
   <script src="src/index.js"></script>
-  <script defer src="src/modal2.js"></script>
 </body>
 </html>
 
